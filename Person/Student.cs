@@ -15,9 +15,10 @@ namespace InternshipTest.Person
             }
         }
         public Knowledge knowledgeLevel{get; private set;}
-        public Student(string name)
+        public Student(string name, Knowledge level)
         {
             Name = name;
+            SetKnowledge(level);
         }
 
         public void SetKnowledge(Knowledge knowledge)
