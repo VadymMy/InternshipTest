@@ -14,10 +14,10 @@ namespace InternshipTest
             university.AddStudent(new Student(("Andrew Kostenko"), new Knowledge(3)));
             university.AddStudent(new Student(("Julia Veselkina"), new Knowledge(4)));
             university.AddStudent(new Student(("Maria Perechrest"), new Knowledge(5)));
-
+            
             Internship internship = new Internship("Interlink");
             Console.WriteLine("List of internship's students:");
-            Console.WriteLine(internship.GetStudents());//output
+            Console.WriteLine(internship.GetStudents());
         }
     }
 }

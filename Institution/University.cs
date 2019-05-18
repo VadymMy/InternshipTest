@@ -5,23 +5,12 @@ namespace InternshipTest.Institution
 {
     public class University
     {
-        private List<Student> Students = new List<Student>();
-        public List<Student> GetStudentList()
+        private static List<Student> Students = new List<Student>();
+        public static List<Student> GetStudentList()
         {
             return Students;
         }
-        public string Name
-        {
-            get
-            {
-                return Name;
-            }
-            private set
-            {
-                if(value != null && value.Length > 0)
-                    Name = value; 
-            }
-        }
+        public string Name{get; private set;}
         public University(string name)
         {
             Name = name;

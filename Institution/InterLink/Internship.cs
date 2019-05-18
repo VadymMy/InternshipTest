@@ -7,24 +7,14 @@ namespace InternshipTest.Institution.InterLink
     public class Internship
     {
         private List<Student> Interns = new List<Student>(); 
-        public string Name
-        {
-            get
-            {
-                return Name;
-            }
-            private set
-            {
-                if(value != null && value.Length > 0)
-                    Name = value;
-            }
-        }
+        public string Name{get; private set;}
         public Internship(string name)
         {
-            Name = name;      
+            Name = name;  
         }
         public string GetStudents()
-        {   
+        {               
+            SetInterns(); 
             string answer = "";
             foreach(Student intern in Interns)
             {
@@ -41,8 +31,11 @@ namespace InternshipTest.Institution.InterLink
         private double AverageNote(List<Student> students)
         {
             double answer = 0;
-            for(int i = 0; i < students.Count; i++)            
-                answer += Convert.ToDouble(students[i].knowledgeLevel);
+            for(int i = 0; i < students.Count; i++)
+            {            
+                Knowledge curStudentKnowledge = students[i].knowledgeLevel;
+                answer += Convert.ToDouble(curStudentKnowledge.Level);
+            }
             answer /= students.Count;
             return answer - answer % 0.1;
         }
