@@ -1,3 +1,4 @@
+using System.Linq;
 using System;
 using InternshipTest.Person;
 using System.Collections.Generic;
@@ -6,7 +7,8 @@ namespace InternshipTest.Institution.InterLink
 {
     public class Internship
     {
-        private List<Student> Interns = new List<Student>(); 
+        private List<Student> Interns = new List<Student>();
+        private List<Student> AllStudents = new List<Student>(); 
         public string Name{get; private set;}
         public Internship(string name)
         {
@@ -22,11 +24,16 @@ namespace InternshipTest.Institution.InterLink
             }        
             return answer;
         }
+        public void AddUniversity(University university)
+        {
+            List<Student> curUniversityStudents = university.GetStudentList();
+            foreach(Student student in curUniversityStudents)
+                AllStudents.Add(student);
+        }
         private void SetInterns()
-        {            
-            List<Student> allStudents =  University.GetStudentList();            
-            double avg = AverageNote(allStudents);
-            CheckStudents(allStudents, avg);
+        {         
+            double avg = AverageNote(AllStudents);
+            CheckStudents(AllStudents, avg);
         }
         private double AverageNote(List<Student> students)
         {

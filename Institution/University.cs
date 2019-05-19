@@ -5,8 +5,8 @@ namespace InternshipTest.Institution
 {
     public class University
     {
-        private static List<Student> Students = new List<Student>();
-        public static List<Student> GetStudentList()
+        private List<Student> Students = new List<Student>();
+        public List<Student> GetStudentList()
         {
             return Students;
         }
